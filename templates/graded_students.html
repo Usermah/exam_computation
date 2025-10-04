@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Graded Students{% endblock %}
+
+{% block content %}
+<h1 style="text-align:center;margin-bottom:20px;">Graded Students by Subject</h1>
+
+{% if grouped_by_subject %}
+  {% for subject, students in grouped_by_subject.items %}
+    <h2 style="margin-top:30px;margin-bottom:10px;">{{ subject }}</h2>
+
+    <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
+      <thead>
+        <tr style="background:#f2f2f2;">
+          <th style="border:1px solid #ddd;padding:8px;">Reg No</th>
+          <th style="border:1px solid #ddd;padding:8px;">Name</th>
+          <th style="border:1px solid #ddd;padding:8px;">Class</th>
+          <th style="border:1px solid #ddd;padding:8px;">Total Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for s in students %}
+        <tr>
+          <td style="border:1px solid #ddd;padding:8px;">{{ s.student__reg_no }}</td>
+          <td style="border:1px solid #ddd;padding:8px;">
+            {{ s.student__first_name }} {{ s.student__last_name }}
+          </td>
+          <td style="border:1px solid #ddd;padding:8px;">{{ s.student__class_level }}</td>
+          <td style="border:1px solid #ddd;padding:8px;">{{ s.total_marks }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  {% endfor %}
+{% else %}
+  <p style="text-align:center;">No students graded yet.</p>
+{% endif %}
+
+<nav style="text-align:right;margin-top:20px;">
+  <a href="{% url 'teacher_dashboard' %}"
+     style="padding:8px 12px;background:#1f2937;color:white;text-decoration:none;border-radius:6px;">
+     ⬅ Back
+  </a>
+</nav>
+{% endblock %}

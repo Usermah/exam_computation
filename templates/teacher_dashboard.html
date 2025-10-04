@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Teacher Dashboard{% endblock %}
+
+{% block content %}
+<h1 style="text-align: center;">Welcome, {{ teacher.name|default:"Teacher" }}</h1>
+<p style="text-align: center; font-weight: bold;">
+    Teacher dashboard — Manage your students and enter results
+</p>
+
+<div class="dashboard-cards">
+  <a class="card" href="{% url 'add_student' %}"> Add Student</a>
+  <a class="card secondary" href="{% url 'input_results' %}"> Enter Grades</a>
+  <a class="card" href="{% url 'view_students' %}"> View My Students</a>
+  <a class="card" href="{% url 'graded_students' %}"> Graded Students</a>
+
+</div>
+
+
+
+
+{% comment %} 
+<h3>Your Students</h3>
+{% if students %}
+  <table class="table">
+    <thead>
+      <tr><th>Reg No</th><th>Name</th><th>Class</th></tr>
+    </thead>
+    <tbody>
+      {% for s in students %}
+      <tr>
+        <td>{{ s.reg_no }}</td>
+        <td>{{ s.first_name }} {{ s.last_name }}</td>
+        <td>{{ s.class_level }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No students yet. Add some.</p>
+{% endif %} {% endcomment %}
+{% endblock %}

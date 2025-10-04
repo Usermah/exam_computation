@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Compile Results{% endblock %}
+{% block content %}
+<h2>Compile Results</h2>
+<p>This page can be used to compile and generate reports.</p>
+
+
+  <!-- Optional top nav -->
+    <nav style="margin-bottom:20px;text-align:right;">
+        <a href="{% url 'eo_dashboard' %}" 
+           style="padding:8px 12px;background:#1f2937;color:white;text-decoration:none;border-radius:6px;">
+           ⬅ Dashboard
+        </a>
+    </nav>
+
+{% endblock %}

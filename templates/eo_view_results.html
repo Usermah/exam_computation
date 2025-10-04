@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}All Results{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center;margin-bottom:20px;">
+  All Results (Grouped by Class & Subject)
+</h2>
+
+<div style="text-align:right;margin-bottom:15px;">
+  <a href="?download=csv"
+     style="padding:8px 12px;background:green;color:white;text-decoration:none;border-radius:5px;">
+     ⬇ Download CSV
+  </a>
+</div>
+
+{% if classes %}
+  {% for cls in classes %}
+    <div style="margin-bottom:35px;">
+      <h3 style="margin-bottom:10px;">
+        Class: {{ cls.class_name }} —
+        Average: {{ cls.average|floatformat:2 }}
+      </h3>
+
+      {% for subject, results in cls.subjects.items %}
+        <h4 style="margin:15px 0 8px 0;">{{ subject }}</h4>
+
+        <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
+          <thead>
+            <tr style="background:#f2f2f2;">
+              <th style="border:1px solid #ddd;padding:8px;text-align:left;">Student</th>
+              <th style="border:1px solid #ddd;padding:8px;text-align:center;">Total Score</th>
+              <th style="border:1px solid #ddd;padding:8px;text-align:center;">Grade</th>
+              <th style="border:1px solid #ddd;padding:8px;text-align:center;">Term</th>
+              <th style="border:1px solid #ddd;padding:8px;text-align:center;">Session</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in results %}
+            <tr>
+              <td style="border:1px solid #ddd;padding:8px;">
+                {{ r.student.first_name }} {{ r.student.last_name }}
+                {% if r.student.reg_no %} — <small>{{ r.student.reg_no }}</small>{% endif %}
+              </td>
+              <td style="border:1px solid #ddd;padding:8px;text-align:center;">{{ r.total_score }}</td>
+              <td style="border:1px solid #ddd;padding:8px;text-align:center;">{{ r.grade }}</td>
+              <td style="border:1px solid #ddd;padding:8px;text-align:center;">{{ r.term }}</td>
+              <td style="border:1px solid #ddd;padding:8px;text-align:center;">{{ r.session }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endfor %}
+    </div>
+  {% endfor %}
+{% else %}
+  <p style="text-align:center;">No results yet.</p>
+{% endif %}
+
+<nav style="margin-top:20px;text-align:right;">
+  <a href="{% url 'eo_dashboard' %}"
+     style="padding:8px 12px;background:#1f2937;color:white;text-decoration:none;border-radius:6px;">
+     ⬅ Dashboard
+  </a>
+</nav>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Examination Officer Dashboard{% endblock %}
+
+{% block content %}
+<h1 style="text-align:center;color:#111;margin-bottom:10px;">Examination Officer Dashboard</h1>
+<h2 style="text-align:center;color:#333;margin-bottom:20px;">Welcome, {{ teacher.name|default:user.username }}</h2>
+<p style="text-align:center;color:#555;margin-bottom:30px;">Select an action below:</p>
+
+<div class="dashboard-cards">
+    <a href="{% url 'view_all_results' %}" class="card">
+        <span style="font-size:2rem; display:block; margin-bottom:10px;">📊</span>
+        <span style="font-weight:bold; font-size:1.1rem;">View All Results</span>
+    </a>
+{% comment %} 
+    <a href="{% url 'compile_results' %}" class="card secondary">
+        <span style="font-size:2rem; display:block; margin-bottom:10px;">🧾</span>
+        <span style="font-weight:bold; font-size:1.1rem;">Compile Results</span>
+    </a> {% endcomment %}
+</div>
+{% endblock %}

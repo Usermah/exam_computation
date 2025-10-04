@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}My Students{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center;margin-bottom:20px;">My Students</h2>
+
+{% if students %}
+  <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
+    <thead>
+      <tr style="background:#f2f2f2;">
+        <th style="border:1px solid #ddd;padding:8px;">Reg No</th>
+        <th style="border:1px solid #ddd;padding:8px;">Name</th>
+        <th style="border:1px solid #ddd;padding:8px;">Class</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in students %}
+      <tr>
+        <td style="border:1px solid #ddd;padding:8px;">{{ s.reg_no }}</td>
+        <td style="border:1px solid #ddd;padding:8px;">
+          {{ s.first_name }} {{ s.last_name }}
+        </td>
+        <td style="border:1px solid #ddd;padding:8px;">{{ s.class_level }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p style="text-align:center;">No students yet.</p>
+{% endif %}
+
+<nav style="text-align:right;margin-top:20px;">
+  <a href="{% url 'teacher_dashboard' %}"
+     style="padding:8px 12px;background:#1f2937;color:white;text-decoration:none;border-radius:6px;">
+     ⬅ Back
+  </a>
+</nav>
+{% endblock %}

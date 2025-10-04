@@ -1,0 +1,192 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f2f6fc;
+  color:#333;
+  margin:0;
+  padding:0;
+}
+
+/* Text color override to make content darker */
+body, 
+.table th, 
+.table td, 
+.card, 
+h1, h2, h3, h4, h5, h6, 
+p, 
+label, 
+a {
+  color: #000 !important;  /* Change to red if you want: #b30000 */
+}
+
+/* Text color override to make content darker */
+
+.table td{
+  color: #68ec10 !important;  /* Change to red if you want: #b30000 */
+}
+
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 20px;
+  background:#004080;
+  color:white;
+}
+
+.navbar a {
+  color:white;
+  text-decoration:none;
+  margin-left:12px;
+}
+
+.content {
+  padding:20px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.dashboard-cards {
+  display:flex;
+  gap:16px;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
+
+.card {
+  flex:1;
+  min-width:200px;
+  padding:20px;
+  background:#f8f9fc;
+  border-radius:10px;
+  text-decoration:none;
+  color:#003366;
+  font-weight:bold;
+  text-align:center;
+  transition:0.3s;
+}
+
+.card:hover {
+  background:#e2e6f0;
+  transform:translateY(-5px);
+}
+
+.table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+}
+
+.table th, .table td {
+  padding:12px;
+  border-bottom:1px solid #ddd;
+}
+
+.messages {
+  list-style:none;
+  margin-bottom:12px;
+}
+
+.message {
+  padding:8px;
+  border-radius:6px;
+  margin-bottom:6px;
+}
+
+.message.error {
+  background:#ffd7d7;
+  color:#9b1c1c;
+}
+
+.message.success {
+  background:#e6f7e6;
+  color:#1a7f1a;
+}
+
+/* Background image */
+.bg-image {
+  background-image: url("../images/go.jpg"); /* make sure folder is 'images' */
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Header */
+.school-header h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: #222;
+}
+
+/* Login layout */
+.login-container {
+  display: flex;
+  max-width: 900px;
+  margin: 60px auto;
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.login-form {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Button */
+.btn, button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #1f2937;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn:hover, button:hover {
+  background: #374151;
+}
+
+/* Error styling */
+.error {
+  color: red;
+  font-size: 0.85rem;
+}
+
+/* Image on the right */
+.login-image {
+  flex: 1;
+}
+
+.login-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

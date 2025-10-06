@@ -31,8 +31,15 @@ class TeacherProfile(models.Model):
     def check_password(self, raw_password):
         return check_password(raw_password, self.password)
 
+    def save(self, *args, **kwargs):
+        # Hash only if it's not already hashed
+        if self.password and not self.password.startswith('pbkdf2_sha256$'):
+            self.password = make_password(self.password)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.name
+
 
 # ---------------------------
 # Student
